@@ -15,9 +15,8 @@ export default function App() {
       {/* LEFT SIDEBAR */}
       <div className="w-72 bg-black/40 border-r border-white/10 p-5 flex flex-col gap-5 overflow-y-auto shrink-0">
         <div>
-          <h1 className="text-xl font-black tracking-wider text-accent uppercase">Kit Forge</h1>
-          <p className="text-[10px] text-gray-500 uppercase tracking-widest">3D Jersey Customizer</p>
-        </div>
+          <h1 className="text-xl font-black tracking-wider text-accent uppercase">Jersey Kart</h1>
+<p className="text-[10px] text-gray-500 uppercase tracking-widest">3D Jersey Customizer</p>
 
         <div className="space-y-2">
           <p className="text-[10px] uppercase text-gray-500 tracking-wider">Active Part</p>
