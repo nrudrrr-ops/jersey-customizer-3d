@@ -24,7 +24,7 @@ export default function Scene() {
       
       <Suspense fallback={null}>
         <Stage intensity={0.5} environment="city" adjustCamera={false}>
-          <PlayerModel scale={0.04} position={[0, -1.5, 0]} />
+          <PlayerModel scale={0.028} position={[0, -1.8, 0]} />
         </Stage>
       </Suspense>
 
