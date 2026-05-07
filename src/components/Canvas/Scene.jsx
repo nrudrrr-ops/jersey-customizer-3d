@@ -21,7 +21,7 @@ export default function Scene() {
     <div style={{ width: '100%', height: '100%' }}>
       <Canvas
         shadows
-        camera={{ position: [0, 1, 3.5], fov: 45 }}
+        camera={{ position: [0, 1.5, 4.5], fov: 40 }}
         style={{ width: '100%', height: '100%' }}
       >
         <ambientLight intensity={0.4} />
@@ -29,7 +29,7 @@ export default function Scene() {
         
         <Suspense fallback={null}>
           <Stage intensity={0.5} environment="city" adjustCamera={false}>
-            <PlayerModel scale={0.028} position={[0, -1.8, 0]} />
+            <PlayerModel scale={0.022} position={[0, -2.2, 0]} />
           </Stage>
         </Suspense>
 
@@ -38,7 +38,7 @@ export default function Scene() {
           enablePan={true}
           minDistance={1.5}
           maxDistance={10}
-          target={[0, 1, 0]}
+          target={[0, 0.5, 0]}
         />
       </Canvas>
     </div>
