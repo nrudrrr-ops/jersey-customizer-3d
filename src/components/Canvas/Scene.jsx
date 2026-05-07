@@ -18,24 +18,30 @@ function PlayerModel(props) {
 
 export default function Scene() {
   return (
-    <Canvas shadows camera={{ position: [0, 1, 3.5], fov: 45 }}>
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[5, 2, 5]} intensity={1.2} castShadow />
-      
-      <Suspense fallback={null}>
-        <Stage intensity={0.5} environment="city" adjustCamera={false}>
-          <PlayerModel scale={0.028} position={[0, -1.8, 0]} />
-        </Stage>
-      </Suspense>
+    <div style={{ width: '100%', height: '100%' }}>
+      <Canvas
+        shadows
+        camera={{ position: [0, 1, 3.5], fov: 45 }}
+        style={{ width: '100%', height: '100%' }}
+      >
+        <ambientLight intensity={0.4} />
+        <directionalLight position={[5, 2, 5]} intensity={1.2} castShadow />
+        
+        <Suspense fallback={null}>
+          <Stage intensity={0.5} environment="city" adjustCamera={false}>
+            <PlayerModel scale={0.028} position={[0, -1.8, 0]} />
+          </Stage>
+        </Suspense>
 
-      <OrbitControls
-        makeDefault
-        enablePan={true}
-        minDistance={1.5}
-        maxDistance={10}
-        target={[0, 1, 0]}
-      />
-    </Canvas>
+        <OrbitControls
+          makeDefault
+          enablePan={true}
+          minDistance={1.5}
+          maxDistance={10}
+          target={[0, 1, 0]}
+        />
+      </Canvas>
+    </div>
   );
 }
 
