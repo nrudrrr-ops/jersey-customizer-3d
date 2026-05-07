@@ -21,23 +21,21 @@ export default function Scene() {
     <div style={{ width: '100%', height: '100%' }}>
       <Canvas
         shadows
-        camera={{ position: [0, 1.5, 4.5], fov: 40 }}
+        camera={{ position: [0, 1.2, 4], fov: 38 }}
         style={{ width: '100%', height: '100%' }}
       >
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 2, 5]} intensity={1.2} castShadow />
-        
         <Suspense fallback={null}>
           <Stage intensity={0.5} environment="city" adjustCamera={false}>
-            <PlayerModel scale={0.022} position={[0, -2.2, 0]} />
+            <PlayerModel scale={0.025} position={[0, -2.0, 0]} />
           </Stage>
         </Suspense>
-
         <OrbitControls
           makeDefault
-          enablePan={true}
-          minDistance={1.5}
-          maxDistance={10}
+          enablePan={false}
+          minDistance={2}
+          maxDistance={8}
           target={[0, 0.5, 0]}
         />
       </Canvas>
