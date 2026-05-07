@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Scene from "./components/Canvas/Scene";
 import ColorPicker from "./components/UI/ColorPicker";
 import TextLogoPanel from "./components/UI/TextLogoPanel";
@@ -8,27 +8,26 @@ import { useStore } from "./store/useStore";
 
 export default function App() {
   const store = useStore();
-  const [activeTab, setActiveTab] = useState("left");
 
   return (
-    <div style={{ width: '1298px', height: '500px' }} className="flex bg-[#0a0f18] text-white overflow-hidden font-sans">
+    <div className="flex h-screen w-screen bg-[#0a0f18] text-white overflow-hidden font-sans">
 
       {/* LEFT SIDEBAR */}
-      <div className="w-56 bg-black/40 border-r border-white/10 px-3 py-2 flex flex-col gap-2 overflow-hidden shrink-0">
+      <div className="w-72 bg-black/40 border-r border-white/10 p-5 flex flex-col gap-5 overflow-y-auto shrink-0">
         <div>
-          <h1 className="text-sm font-black tracking-wider text-accent uppercase">Jersey Kart</h1>
-          <p className="text-[8px] text-gray-500 uppercase tracking-widest">3D Jersey Customizer</p>
+          <h1 className="text-xl font-black tracking-wider text-accent uppercase">Jersey Kart</h1>
+          <p className="text-[10px] text-gray-500 uppercase tracking-widest">3D Jersey Customizer</p>
         </div>
 
-        <div>
-          <p className="text-[8px] uppercase text-gray-500 mb-1">Active Part</p>
-          <div className="flex gap-1">
+        <div className="space-y-2">
+          <p className="text-[10px] uppercase text-gray-500 tracking-wider">Active Part</p>
+          <div className="flex gap-2">
             {["shirt", "shorts", "socks"].map((part) => (
               <button
                 key={part}
                 onClick={() => store.setActivePart(part)}
-                className={`flex-1 py-1 text-[9px] font-bold uppercase rounded transition ${
-                  store.activePart === part ? "bg-accent text-black" : "bg-white/5 text-gray-400"
+                className={`flex-1 py-2 text-xs font-bold uppercase rounded-md transition ${
+                  store.activePart === part ? "bg-accent text-black" : "bg-white/5 text-gray-400 hover:bg-white/10"
                 }`}
               >
                 {part}
@@ -37,15 +36,15 @@ export default function App() {
           </div>
         </div>
 
-        <div>
-          <p className="text-[8px] uppercase text-gray-500 mb-1">Kit Style</p>
-          <div className="grid grid-cols-2 gap-1">
+        <div className="space-y-2">
+          <p className="text-[10px] uppercase text-gray-500 tracking-wider">Kit Style</p>
+          <div className="grid grid-cols-2 gap-2">
             {["solid", "halves", "stripes", "gradient"].map((s) => (
               <button
                 key={s}
                 onClick={() => store.setStyle(s)}
-                className={`py-1 text-[9px] font-semibold uppercase rounded border transition ${
-                  store.style === s ? "border-accent text-accent bg-accent/10" : "border-white/10 text-gray-400"
+                className={`py-2 text-xs font-semibold uppercase rounded-md border transition ${
+                  store.style === s ? "border-accent text-accent bg-accent/10" : "border-white/10 text-gray-400 hover:border-white/30"
                 }`}
               >
                 {s}
@@ -60,10 +59,13 @@ export default function App() {
       {/* CENTER 3D */}
       <div className="flex-1 h-full relative">
         <Scene />
+        <p className="absolute top-3 left-1/2 -translate-x-1/2 text-[10px] text-gray-500 tracking-widest uppercase">
+          Drag to rotate - Scroll to zoom
+        </p>
       </div>
 
       {/* RIGHT SIDEBAR */}
-      <div className="w-56 bg-black/40 border-l border-white/10 px-3 py-2 flex flex-col gap-2 overflow-hidden shrink-0">
+      <div className="w-72 bg-black/40 border-l border-white/10 p-5 flex flex-col gap-5 overflow-y-auto shrink-0">
         <ColorPicker />
         <Presets />
         <ExportButton />
